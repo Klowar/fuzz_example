@@ -1,0 +1,10 @@
+# Set of keywords for fuzzing test
+# Lines starting with '#' and empty lines are ignored.
+
+
+
+kw1="MIN"
+kw2="MAX"
+kw3="SUM"
+kw4="AVG"
+kw5="COUNT"

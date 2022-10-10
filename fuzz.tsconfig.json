@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"target": "es2015",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"allowJs": true,
+		"checkJs": false,
+		"rootDir": ".",
+		"outDir": "./dist",
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": false,
+		"strict": false,
+		"skipLibCheck": true,
+		"declaration": false,
+		"noImplicitAny": false
+	},
+    "include": [
+        "fuzz",
+        "src/parser",
+        "src/compiler"
+    ]
+}
