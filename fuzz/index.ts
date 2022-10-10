@@ -4,8 +4,8 @@ export function fuzz(data: Buffer){
     let p = new Parser();
     try {
         p.parse(data.toString());
-        return 0;
+        return 1; // Parsed case
     } catch(e) {
-        return 1;
+        return 0; // Skip case
     }
 }
