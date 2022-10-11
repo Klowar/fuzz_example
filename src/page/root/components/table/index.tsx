@@ -1,4 +1,4 @@
-import {FC, useMemo} from 'react';
+import {FC, useEffect, useMemo, useState} from 'react';
 import { Cell } from '../../../../model/cell';
 import { Project } from '../../../../model/project';
 import { Row, RowH } from './row';
@@ -15,7 +15,7 @@ const getRows = (rows: number, cells: number, project: Project)=>{
     {
         const row: Cell[] = [];
         for (let j = 0; j < cells; j++)
-            row.push(project.addCell(new Cell(i, String.fromCharCode(65+j/26))));
+            row.push(project.addCell(new Cell(i, String.fromCharCode(65+j%26))));
         _rows.push(row);
     }
     return _rows;
@@ -23,8 +23,13 @@ const getRows = (rows: number, cells: number, project: Project)=>{
 
 export const Table: FC<TableT> = ({rows, cells, project})=>{
 
+    const [iteration, setIteration] = useState(0);
     const _rows = useMemo(()=>getRows(rows, cells, project), [rows, cells, project]);
-    const rowsComp = _rows.map((r, i)=><Row key={i} cells={r}/>);
+    const rowsComp = _rows.map(r=><Row iteration={iteration} cells={r}/>);
+
+    useEffect(()=>{
+        project.once('compile', ()=>setIteration(iteration+1));
+    }, [project, iteration]);
 
     return <table>
         <thead>

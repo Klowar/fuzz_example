@@ -3,6 +3,7 @@ import { Cell as CellM } from '../../../../model/cell';
 
 type CellT = {
     cell: CellM;
+    iteration: number;
 }
 
 export const Cell: FC<CellT> = ({cell})=>{

@@ -1,10 +1,12 @@
+import { EventEmitter } from 'eventemitter3';
 import {Cell} from './cell';
 
-export class Project {
+export class Project extends EventEmitter {
 
     private cells: Map<string, Cell> = new Map([]);
 
     constructor(){
+        super();
         this.onCellChange = this.onCellChange.bind(this);
     }
 
@@ -18,8 +20,8 @@ export class Project {
         return this;
     }
 
-    private onCellChange(cell: Cell){
-        cell.compile();
+    private onCellChange(){
+        this.compile();
     }
 
     getCell(hash: string){
@@ -35,6 +37,7 @@ export class Project {
     compile(){
         for(let c of this.cells.values())
             c.compile();
+        this.emit('compile');
     }
 
 }

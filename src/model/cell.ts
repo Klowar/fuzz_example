@@ -4,6 +4,8 @@ import { Project } from './project';
 
 export class Cell extends EventEmitter {
 
+    public iteration: number = 0;
+
     private _row: number;
     private _column: string;
 
@@ -34,6 +36,7 @@ export class Cell extends EventEmitter {
     }
 
     compile():void {
+        this.iteration++;
         if (!this._project||!this._formula)
             return;
         this._value = this._formula.getValue(this._project);

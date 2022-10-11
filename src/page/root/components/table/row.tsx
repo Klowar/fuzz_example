@@ -4,11 +4,12 @@ import { Cell, CellH } from './cell';
 
 type RowT = {
     cells: CellM[];
+    iteration: number;
 }
 
-export const Row: FC<RowT> = ({cells})=>{
+export const Row: FC<RowT> = ({cells, iteration})=>{
 
-    const cellComps = cells.map(c=><Cell key={c.getHash()} cell={c}/>);
+    const cellComps = cells.map(c=><Cell iteration={iteration} key={c.getHash()} cell={c}/>);
 
     return <tr>
         {cellComps}
