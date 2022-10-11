@@ -1,4 +1,4 @@
-import { Ammsc, Identifier, BinaryExpression, Literal } from './../../src/parser/types';
+import { Ammsc, Identifier, BinaryExpression, Literal } from './../../src/model/types';
 import assert from 'assert';
 import {Parser} from '../../src/parser';
 

@@ -1,21 +1,13 @@
+import { Project } from './project';
+
 /**
  * types definition for yyparser
  */
 
-export class Literal {
-    value: string | number;
-
-    constructor(value: string | number){
-        this.value = value;
-    }
-}
-
-export class Identifier {
-    name: string;
+class ParseElement {
     index?: number;
 
-    constructor(name: string, index?: number){
-        this.name = name;
+    constructor(index?: number){
         this.index = index;
     }
 
@@ -23,6 +15,25 @@ export class Identifier {
         this.index = index;
         return this;
     }
+}
+
+export class Literal extends ParseElement {
+    value: string | number;
+
+    constructor(value: string | number){
+        super();
+        this.value = value;
+    }
+}
+
+export class Identifier extends ParseElement {
+    name: string;
+
+    constructor(name: string, index?: number){
+        super(index);
+        this.name = name;
+    }
+
 }
 
 export class Expression {
@@ -76,6 +87,11 @@ export class Root {
         this.statement = expression;
         return this;
     }
+
+    getValue(project: Project):any {
+        return 10;
+    }
+
 }
 
 export class Scope {

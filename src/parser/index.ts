@@ -1,6 +1,6 @@
 import { getParser as getCompiledParser } from '../compiler';
-import { Root, Scope } from './types';
-export * from './types';
+import { Root, Scope } from '../model/types';
+export * from '../model/types';
 
 export class Parser {
 

@@ -1,13 +1,14 @@
 import {FC} from 'react';
+import { Cell as CellM } from '../../../../model/cell';
 
 type CellT = {
-
+    cell: CellM;
 }
 
-export const Cell: FC<CellT> = ()=>{
+export const Cell: FC<CellT> = ({cell})=>{
 
     return <td>
-        {Math.random()}
+        {cell.value}
     </td>
 }
 
