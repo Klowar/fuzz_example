@@ -83,7 +83,7 @@ unary_expression:
     ;
 
 function:
-        AMMSC '(' multi_identifier ')' {
+        AMMSC '(' multi_argument ')' {
             {
                 $$ = new yy.scope.ammsc($1, $3); 
             }
@@ -95,23 +95,15 @@ argument:
     |   literal
     ;
 
-identifier:
-        NAME {
-            {
-                $$ = new yy.scope.identifier($1);
-            }
-        }
-    ;
-
-multi_identifier:
-        multi_identifier ',' identifier {
+multi_argument:
+        multi_argument ',' argument {
             {
                 $$ = Array.isArray($1) ? $1 : [$1];
                 $3.setIndex($$.length);
                 $$.push($3);
             }
         }
-    |   identifier {
+    |   argument {
             {
                 $$ = [$1];
                 $1.setIndex(0);
@@ -119,16 +111,10 @@ multi_identifier:
         }
     ;
 
-multi_literal:
-        multi_literal ',' literal {
+identifier:
+        NAME {
             {
-                $$ = Array.isArray($1) ? $1 : [$1];
-                $$.push($3);
-            }
-        }
-    |   literal {
-            {
-                $$ = [$1];
+                $$ = new yy.scope.identifier($1);
             }
         }
     ;

@@ -6,11 +6,13 @@ specifiers:
   '@testing-library/react': ^13.4.0
   '@testing-library/user-event': ^13.5.0
   '@types/jest': ^27.5.2
+  '@types/lodash': ^4.14.186
   '@types/node': ^16.11.64
   '@types/react': ^18.0.21
   '@types/react-dom': ^18.0.6
   eventemitter3: ^4.0.7
   jison: ^0.4.18
+  lodash: ^4.17.21
   mocha: ^10.0.0
   react: ^18.2.0
   react-app-rewired: ^2.2.1
@@ -29,6 +31,7 @@ dependencies:
   '@types/react': 18.0.21
   '@types/react-dom': 18.0.6
   eventemitter3: 4.0.7
+  lodash: 4.17.21
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-scripts: 5.0.1_tg35rg5bw5g7dmcyz7ysfys5si
@@ -37,6 +40,7 @@ dependencies:
 
 devDependencies:
   '@jazzer.js/core': 1.0.1
+  '@types/lodash': 4.14.186
   jison: 0.4.18
   mocha: 10.0.0
   react-app-rewired: 2.2.1_react-scripts@5.0.1
@@ -2237,6 +2241,10 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+
+  /@types/lodash/4.14.186:
+    resolution: {integrity: sha512-eHcVlLXP0c2FlMPm56ITode2AgLMSa6aJ05JTTbYbI+7EMkCEE5qk2E41d5g2lCVTqRe0GnnRFurmlCsDODrPw==}
+    dev: true
 
   /@types/mime/3.0.1:
     resolution: {integrity: sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==}
